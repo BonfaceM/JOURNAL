@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenyan Traders Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        <i class="fas fa-chart-line"></i> My Dashboard
+    </div>
+
+    <div class="nav-center">
+        <button onclick="showSection('dashboard')">
+            <i class="fas fa-chart-line"></i> Dashboard
+        </button>
+
+        <button onclick="showSection('trade')">
+            <i class="fas fa-plus-circle"></i> Add Trade
+        </button>
+
+        <button onclick="showSection('journal')">
+            <i class="fas fa-book"></i> Journal
+        </button>
+
+        <button onclick="showSection('accounts')">
+            <i class="fas fa-wallet"></i> Accounts
+        </button>
+
+        <button onclick="showSection('challenges')">
+            <i class="fas fa-trophy"></i> Challenges
+        </button>
+    </div>
+
+    <div class="profile-container">
+        <img src="images/856da8c941d89408f567db96b566b639.jpg"
+             class="avatar"
+             onclick="toggleProfileMenu()">
+
+        <div class="profile-menu" id="profileMenu">
+            <button onclick="showSection('profile')">
+                <i class="fas fa-user"></i> My Profile
+            </button>
+
+            <button onclick="showSection('accounts')">
+                <i class="fas fa-wallet"></i> Account Centre
+            </button>
+
+            <button onclick="showSection('challenges')">
+                <i class="fas fa-trophy"></i> Challenge Centre
+            </button>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="section active">
+    <h1 class="dashboard-title">Dashboard</h1>
+    <p class="dashboard-subtitle">Overview of your trading performance</p>
+    <div class="stats">
+
+    <div class="card stat-card">
+        <div class="stat-header">
+             <h3>Total Equity</h3>
+        <p id="totalEquity" class="number">$0</p>
+        <p id="equityChange" class="stat-sub"></p>
+        <span class="stat-icon">💰</span>
+        
+       
+        </div>
+    </div>
+
+    <div class="card stat-card">
+        <div class="stat-header">
+            <span class="stat-icon">📊</span>
+            <h3>Total Trades</h3>
+        </div>
+        <p id="totalTrades" class="number">0</p>
+    </div>
+
+    <div class="card stat-card">
+        <div class="stat-header">
+            <span class="stat-icon">🎯</span>
+            <h3>Win Rate</h3>
+        </div>
+        <p id="winRate" class="number">0%</p>
+        <p id="winDetails" class="stat-sub"></p>
+    </div>
+
+    <div class="card stat-card">
+        <div class="stat-header">
+            <span class="stat-icon">🏆</span>
+            <h3>Active Challenges</h3>
+        </div>
+        <p id="activeChallenges" class="number">0</p>
+    </div>
+
+</div>
+
+<h2 class="sub-title">Quick Actions</h2>
+
+<div class="quick-actions">
+    <div class="quick-card" onclick="showSection('trade')">
+        <div class="action-row">
+            <i class="fas fa-plus-circle"></i>
+            <div>
+                <p class="action-title">Add Trade</p>
+                <p class="action-sub">Log a new trade</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quick-card" onclick="showSection('journal')">
+        <div class="action-row">
+            <i class="fas fa-book"></i>
+            <div>
+                <p class="action-title">View Journal</p>
+                <p class="action-sub">Browse trade history</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quick-card" onclick="showSection('accounts')">
+        <div class="action-row">
+            <i class="fas fa-wallet"></i>
+            <div>
+                <p class="action-title">Accounts</p>
+                <p class="action-sub">Manage your accounts</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="quick-card" onclick="showSection('challenges')">
+        <div class="action-row">
+            <i class="fas fa-trophy"></i>
+            <div>
+                <p class="action-title">Challenges</p>
+                <p class="action-sub">Track your goals</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Trades Section -->
+<div class="recent-trades">
+
+    <div class="recent-header">
+        <h2>Recent Trades</h2>
+        
+    </div>
+
+    <table class="trades-table">
+        <thead align="left">
+            <tr>
+                <th>Date</th>
+                <th>Pair</th>
+                <th>Direction</th>
+                <th>Lots</th>
+                <th>Profit/Loss</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>24 Feb 2026</td>
+                <td>EURUSD</td>
+                <td class="buy">BUY</td>
+                <td>0.50</td>
+                <td class="profit">+800</td>
+            </tr>
+            <tr>
+                <td>23 Feb 2026</td>
+                <td>GBPUSD</td>
+                <td class="sell">SELL</td>
+                <td>1.00</td>
+                <td class="loss">-400</td>
+         <tbody id="recentTradesBody">
+</tbody>
+    </table>
+
+</div>
+
+</section>
+
+<!-- ADD TRADE -->
+<section id="trade" class="section">
+    <h2>Add Trade</h2>
+    <form id="tradeForm">
+        <select id="accountSelect" required></select>
+        <input type="text" id="pair" placeholder="Pair (e.g. EURUSD)" required>
+        <select id="direction">
+            <option value="BUY">BUY</option>
+            <option value="SELL">SELL</option>
+        </select>
+        <input type="number" id="lot" placeholder="Lot Size" required>
+        <input type="number" id="entry" placeholder="Entry Price" required>
+        <input type="number" id="exit" placeholder="Exit Price" required>
+        <input type="number" id="pl" placeholder="Profit / Loss" required>
+        <textarea id="notes" placeholder="Notes"></textarea>
+        <button type="submit">Save Trade</button>
+    </form>
+</section>
+
+<!-- JOURNAL -->
+<section id="journal" class="section">
+    <h2>Trade Journal</h2>
+    <table>
+        <thead>
+            
+            <tr>
+                <th>Date</th>
+                <th>Account</th>
+                <th>Pair</th>
+                <th>Direction</th>
+                <th>Lot</th>
+                <th>P/L</th>
+            </tr>
+        </thead>
+        <tbody id="journalTable"></tbody>
+        
+    </table>
+</section>
+
+<!-- ACCOUNTS -->
+<section id="accounts" class="section">
+    <div class="section-header">
+        <h2>Account Centre</h2>
+        <button class="new-btn" onclick="openAccountModal()">+ New Account</button>
+    </div>
+
+    <div id="accountCards"></div>
+</section>
+
+<!-- CHALLENGES -->
+<section id="challenges" class="section">
+    <div class="section-header">
+        <h2>Challenge Centre</h2>
+        <p class="Challenge Centre-subtitle">Track your trading challenges and goals</p>
+        <button class="new-btn" onclick="openChallengeModal()">+ New Challenge</button>
+    </div>
+
+    <div id="challengeCards"></div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="section">
+    <h2>My Profile</h2>
+    <input type="file" id="avatarUpload">
+</section>
+
+<!-- Account Modal -->
+<div id="accountModal" class="modal">
+    <div class="modal-content">
+        <h3>Create New Account</h3>
+
+        <form id="accountForm">
+            <input type="text" id="accountName" placeholder="Account Name" required>
+
+            <input type="text" id="brokerName" placeholder="Broker Name" required>
+
+            <input type="number" id="startingBalance" placeholder="Starting Balance" required>
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <button class="close-btn" onclick="closeAccountModal()">Close</button>
+    </div>
+</div>
+
+<!-- Challenge Modal -->
+<div id="challengeModal" class="modal">
+    <div class="modal-content">
+        <h3>Create New Challenge</h3>
+        <form id="challengeForm">
+            <input type="text" id="challengeName" placeholder="Challenge Name" required>
+
+            <select id="challengeAccount" required></select>
+
+            <input type="number" id="startBalance" placeholder="Start Balance" required>
+
+            <input type="number" id="targetBalance" placeholder="Target Balance" required>
+
+            <button type="submit">Create Challenge</button>
+        </form>
+
+        <button class="close-btn" onclick="closeChallengeModal()">Close</button>
+    </div>
+</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

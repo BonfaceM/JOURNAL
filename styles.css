@@ -1,0 +1,388 @@
+body {
+    font-size:14px;
+    margin:0;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    background:#0B1120;
+    color:#F9FAFB;
+}
+
+.navbar {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 40px;
+    background:#111827;
+    border-bottom:1px solid #1F2937;
+}
+
+.logo {
+    font-weight:700;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-center {
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav-center button {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:none;
+    border:none;
+    color:#F9FAFB;
+    font-weight:500;
+    cursor:pointer;
+    transition:0.2s ease;
+    font-size:14px;
+}
+
+.nav-center button:hover {
+    color:#2563EB;
+    transform:translateY(-2px);
+}
+
+.profile-container {
+    position:relative;
+}
+
+.avatar {
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    cursor:pointer;
+    border:2px solid #2563EB;
+}
+
+.profile-menu {
+    position:absolute;
+    right:0;
+    top:50px;
+    background:#111827;
+    border:1px solid #1F2937;
+    display:none;
+    flex-direction:column;
+}
+
+.profile-menu button {
+    background:none;
+    border:none;
+    color:white;
+    padding:10px 20px;
+    text-align:left;
+    cursor:pointer;
+}
+
+.container {
+    padding:30px;
+}
+
+.section {
+    display:none;
+}
+
+.section.active {
+    display:block;
+}
+
+.stats {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.card {
+    background:#111827;
+    padding:20px;
+    border-radius:12px;
+    border:1px solid #1F2937;
+}
+
+form {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    max-width:400px;
+}
+
+input, select, textarea {
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #1F2937;
+    background:#0B1120;
+    color:white;
+}
+
+button {
+    padding:10px;
+    background:#2563EB;
+    border:none;
+    border-radius:8px;
+    color:white;
+    cursor:pointer;
+}
+
+table {
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td {
+    padding:10px;
+    border-bottom:1px solid #1F2937;
+    
+}
+
+.buy,.profit{
+    color: #16A34A;
+    
+}
+.sell,.loss{
+    color:#DC2626;
+}
+
+
+.section-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.new-btn {
+    background:#D4AF37;
+    color:black;
+    font-weight:600;
+}
+
+.modal {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content {
+    background:#111827;
+    padding:30px;
+    border-radius:12px;
+    width:400px;
+    border:1px solid #1F2937;
+}
+
+.close-btn {
+    margin-top:10px;
+    background:#DC2626;
+}
+
+.progress-bar {
+    width:100%;
+    height:10px;
+    background:#1F2937;
+    border-radius:6px;
+    margin:10px 0;
+}
+
+.progress-fill {
+    height:100%;
+    background:#D4AF37;
+    border-radius:6px;
+    transition:width 0.4s ease;
+}
+
+.arrow-up {
+    color:#16A34A;
+    font-weight:600;
+}
+
+.arrow-down {
+    color:#DC2626;
+    font-weight:600;
+}
+.nav-links button {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:none;
+    border:none;
+    color:#F9FAFB;
+    margin:0 12px;
+    cursor:pointer;
+    font-weight:500;
+    transition:0.2s ease;
+}
+
+.nav-links button:hover {
+    color:#2563EB;
+}
+
+.nav-links i {
+    font-size:14px;
+}
+
+.profile-menu button {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+.nav-center button.active {
+    color:#2563EB;
+    border-bottom:2px solid #2563EB;
+    padding-bottom:3px;
+    font-weight:600;
+}
+
+h1, .dashboard-title {
+    font-size:24px; /* was larger */
+}
+
+h2, .sub-title {
+    font-size:18px; /* subtitles smaller */
+}
+
+p, .stat-sub, .action-sub, .action-title {
+    font-size:13px; /* small and readable */
+}
+
+.dashboard-subtitle {
+    font-size:14px;
+    color:#9CA3AF;
+    margin-bottom:25px;
+}
+
+.Challenges-subtitle {
+    font-size:14px;
+    color:#9CA3AF;
+    margin-bottom:25px;
+}
+
+.quick-actions {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.quick-card {
+    background:#1F2937;
+    padding:15px;
+    border-radius:10px;
+    text-align:left;
+    cursor:pointer;
+    transition:0.2s ease;
+}
+
+.quick-card i {
+    font-size:28px;
+    margin-bottom:10px;
+    color:#2563EB;
+}
+
+.action-title {
+    font-size: 16px; 
+    font-weight:600;
+    margin-bottom:3px;
+    color:#F9FAFB;
+}
+
+.action-sub {
+    font-size:12px;
+    color:#9CA3AF;
+}
+
+.quick-card:hover {
+    background:#111827;
+    transform:translateY(-3px);
+}
+
+/* Dashboard Stat Card Layout */
+.stat-card {
+    display: flex;
+    justify-content: space-between; /* left = title+number, right = icon */
+    align-items: flex-start; /* align top of text with icon */
+    background: #1F2937;
+    border-radius: 10px;
+    padding: 12px 15px; /* slightly smaller padding to reduce card height */
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+.stat-card:hover {
+    box-shadow: 0 0 12px #2563EB;
+    transform: translateY(-3px);
+}
+
+.stat-card .stat-icon {
+    font-size: 20px;          /* slightly smaller icon */
+}
+
+/* Text container: title + number */
+.stat-header {
+    display: flex;
+    flex-direction: column; /* stack title and number vertically */
+    align-items: flex-start; /* left-align text */
+    gap: 2px; /* very tight spacing between title and number */
+}
+
+.stat-card h3 {
+    font-size: 14px;          /* smaller title text */
+    margin: 5px 0;
+}
+
+
+/* Number styling inside stat card */
+.stat-card .number {
+    font-size: 18px; /* smaller to reduce overall height */
+    margin: 0; /* remove extra margins */
+}
+
+.stat-card .stat-sub {
+    font-size: 12px;  /* keep small */
+    margin-top: 2px;  /* very tight space below number */
+}
+
+/* Optional: subtext under number, very small */
+.stat-sub {
+    font-size: 12px;
+    margin-top: 2px;
+    opacity: 0.85;
+}
+
+/* Icon styling: right side of card */
+.stat-icon {
+    font-size: 26px; /* consistent size */
+    margin: 0;
+    align-self: flex-start; /* top-align with text */
+}
+
+.number {
+    font-family:monospace;
+    font-size:18px;
+    font-weight:600;
+    text-align:left;
+    display: block; /* ensures number stays below the title */
+    margin-top: 5px;
+}
+
+.action-row {
+    display:flex;
+    align-items:center;
+    gap:15px;
+    justify-content: Flex-Start;
+}
+
+.quick-card i {
+    font-size:18px; /* slightly smaller */
+    color:#2563EB;
+}
+.quick-card:hover {
+    box-shadow: 0 0 12px #2563EB;
+    transform: translateY(-3px);
+}
